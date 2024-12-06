@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  rabbitmq:
+    container_name: 'guide-rabbit'
+    image: 'rabbitmq:latest'
+    environment:
+      - 'RABBITMQ_DEFAULT_PASS=admin123'
+      - 'RABBITMQ_DEFAULT_USER=admin'
+    ports:
+      - '5672:5672'
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '8081:8081'
+
+    depends_on:
+      - db
+      - rabbitmq
+
+
+
+
+volumes:
+  mysql_data:
+
