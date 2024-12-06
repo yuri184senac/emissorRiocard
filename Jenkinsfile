@@ -7,7 +7,7 @@ pipeline {
                 checkout([$class: 'GitSCM', branches: [[name: '*/main']],
                           userRemoteConfigs: [
                                 [
-                                    url: 'https://github.com/yuri184senac/yuriRolizEmissorMicroservico.git'
+                                    url: 'https://github.com/yuri184senac/emissorRiocard.git'
                                  ]]])
             }
         }
